@@ -12,8 +12,8 @@ import { BookService, Book} from './book.service';
 				<label for="bID"> ISBN: </label><br>
 				<input type = "text" id= "bID" name="bID" [(ngModel)]=newID />
 				<br/>
-				<label for="bName"> Title: </label><br>
-				<input type = "text" id= "bName" name="bName" [(ngModel)]=newTitle />
+				<label for="bTitle"> Title: </label><br>
+				<input type = "text" id= "bTitle" name="bTitle" [(ngModel)]=newTitle />
 				<br/>
 				<label for="bAuthor"> Author: </label><br>
 				<input type = "text" id= "bAuthor" name="bAuthor" [(ngModel)]=newAuthor />
@@ -40,6 +40,7 @@ import { BookService, Book} from './book.service';
 				<button (click)="add()"> Add Book </button>
 
 				<button routerLink = "/dashboard"> Dashboard</button>
+                <p style="color:blue">{{message}}</p>
 				
 				</form>
                 </div>
@@ -65,15 +66,15 @@ import { BookService, Book} from './book.service';
  
 
  	add(){
-           let bookID : number = parseInt(this.newID);
-           let booktitle : string = this.newTitle;
+           let bookIsbn : number = parseInt(this.newID);
           
-          if(isNaN(bookID)){
+          
+          if(isNaN(bookIsbn)){
       	this.message="Please enter a valid ISBN";
             }
            else{
       	  this.message = "";
-      	  if(this.book.isExist(bookID)){
+      	  if(this.book.isExist(bookIsbn)){
       	  	this.message = "ISBN already exists";
 
       	 } 

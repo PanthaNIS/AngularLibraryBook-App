@@ -42,7 +42,7 @@ import {BookService, Book} from './book.service';
 	})
  export class ListComponent{
  	message:string="";
- 	 data: Book[];// temporary to store the information of book or temporary array
+ 	 data: Book[];// temporary to store the information of book or temporary array to store the information of book
  	 constructor (private books: BookService){
  	 	this.data = books.getList(); // assign all the book to this list
 

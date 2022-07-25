@@ -9,8 +9,8 @@ import {BookService, Book} from './book.service';
 				<div class="form-group">
 				<form>
 				<p>Book ISBN: {{currentID}}</p>
-				<label for="bName"> Title: </label><br>
-				<input type = "text" id= "bName" name="bName" [(ngModel)]=currentTitle />
+				<label for="bTitle"> Title: </label><br>
+				<input type = "text" id= "bTitle" name="bTitle" [(ngModel)]=currentTitle />
 				<br>
 				<label for="bAuthor"> Author: </label><br>
 				<input type = "text" id= "bAuthor" name="bAuthor" [(ngModel)]=currentAuthor />
@@ -34,13 +34,14 @@ import {BookService, Book} from './book.service';
 				
 				<br>
 				<label for="bEdition"> Edition Number: </label><br>
-				<input type = "text" id= "bEdition" name="bEdition" [(ngModel)]=currentEditionNumber />
+				<input type = "text" id= "bEdition" name="bEdition" [(ngModel)]=currentEditionNumber/>
 				<br><br>
 				<button (click) ="doPrev()">Prev</button>
 				<button (click) ="doNext()">Next</button>
 				<button (click) ="doSave()">Save</button>
 				<button (click) ="doDelete()">Delete</button>
 				<button routerLink ="/dashboard">Dashboard </button>
+				<p style="color:blue">{{message}}</p>
 				
 				</form>
 				</div>`,
@@ -132,7 +133,7 @@ import {BookService, Book} from './book.service';
  	doSave()
  	{
  		if(this.position<0){
- 			this.message = "There is no any data in the list to save in the list";
+ 			this.message = "There is no book to save";
  		}
 		 else{
  		this.data[this.position].title = this.currentTitle;

@@ -5,8 +5,9 @@ import { Component } from '@angular/core';
 	template: `
 				<h3> Bad URL Page </h3>
 				<p> Bad URL detected ...</p>
-				<button routerLink = "/"> Home Page </button>
-			  `
+				<p> Please check the URL and try again. </p>
+			  `,
+              styleUrls:['./add.component.css']
 })
 export class BadURLComponent {
 	

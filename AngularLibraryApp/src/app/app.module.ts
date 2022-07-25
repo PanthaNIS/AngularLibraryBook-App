@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {RouterModule, Routes} from '@angular/router';
@@ -13,21 +12,6 @@ import {BookService} from './book.service';
 import {FormsModule} from '@angular/forms';
 import { GuideComponent } from './guide.component';
 
-
-
-const myRoutes : Routes =
-[
-  {path: 'add', component: AddComponent},
-  {path: 'dashboard', component: DashBoardComponent},
-  {path: 'list', component: ListComponent},
-  {path: 'update', component: UpdateComponent},
-  {path: 'guide', component: GuideComponent},
-  {path:'', redirectTo:"/home", pathMatch: 'full'},
-  {path:'**', component:BadURLComponent},
-  
-
-
-]
 
 @NgModule({
   declarations: [
@@ -43,7 +27,6 @@ const myRoutes : Routes =
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(myRoutes),
     FormsModule,
     
   ],

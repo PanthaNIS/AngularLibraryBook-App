@@ -5,12 +5,12 @@ import { Component } from '@angular/core';
   template: `
     <h3>User Guide</h3>
     
-    <p>This is the Help Page. Please read below carefully and navigate around the application.</p>
-    <ul style="list-style: none">
-      <li>To add a new book, click on the big green 'Add Book' button and fill out the form.</li>
-      <li>To edit a book, click on the big green 'Edit Books' button and edit the desired book.</li>
-      <li>To delete a book, click on the big green 'Delete Books' button and delete the desired book.</li>
-      <li>To see the list of the books, click on the big green 'List Books' button.</li>
+    <p> Hi users, the major aim to develop this page is to give you the important information regarding this application. Thoroughly go through the information provided below.</p>
+    <ul>
+      <li>User can add the book data by filling out the form available in Add Book button in the tool bar. </li>
+      <li>User can update the book information from the database using Update button in the tool bar. </li>
+      <li>User can delete the information from the database using Update button in the tool bar and the delete function available in the bottom of the form.</li>
+      <li>User can see the temporary database store in the table in Book List button in the above tool bar.</li>
   </ul>
 `,
 styleUrls:['./add.component.css']

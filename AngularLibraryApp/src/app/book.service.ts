@@ -10,8 +10,8 @@ export class BookService{
          bkData : Book[] =[];
 	getBook: any;
          
-          doAdd(b: Book) {
-              this.bkData[this.bkData.length]=b;// adds all the new book to the array
+          doAdd(nis: Book) {
+              this.bkData[this.bkData.length]=nis; // adds the book to the array.
 
           }
 
