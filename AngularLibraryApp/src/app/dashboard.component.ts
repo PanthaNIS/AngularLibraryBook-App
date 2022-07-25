@@ -5,27 +5,23 @@ import { Component } from '@angular/core';
 
 @Component({
       template: `
-				<h3>Angular BookApplication </h3>
-				<p> </p>
+				<h3 style="text-align: center; font-size:30px;">Angular Library Book Application </h3>
+                <hr style="max-width: 40%;">
+                <br>
+                <div style="text-align:center ;">
+				<h3 style="text-align: center;"> whoami! </h3>
+                <p>Hey! I am Nischal Pantha. Currently, I am studying bachelor in Software Development at Southern Cross University. </p>
+                </div>
 
-				<br>
-				<button (click)="doHelp()">Help</button>
-				<br>
+				
 
-
-				<br>
-				<p style = "color:Red;">{{message}}</p>
+				
 				
 			  `
               
           
 	})
  export class DashBoardComponent{
- 	message:string="";
- 	doHelp(){
- 		this.message="Go to Add Page to Add the book in Database";
-
-
- 	}
+ 	
 
  }

@@ -11,6 +11,7 @@ import {UpdateComponent} from './update.component';
 import {BadURLComponent} from './badurl.component';
 import {BookService} from './book.service';
 import {FormsModule} from '@angular/forms';
+import { GuideComponent } from './guide.component';
 
 
 
@@ -20,6 +21,7 @@ const myRoutes : Routes =
   {path: 'dashboard', component: DashBoardComponent},
   {path: 'list', component: ListComponent},
   {path: 'update', component: UpdateComponent},
+  {path: 'guide', component: GuideComponent},
   {path:'', redirectTo:"/home", pathMatch: 'full'},
   {path:'**', component:BadURLComponent},
   
@@ -35,6 +37,7 @@ const myRoutes : Routes =
     ListComponent,
     UpdateComponent,
     BadURLComponent,
+    GuideComponent
     
   ],
   imports: [

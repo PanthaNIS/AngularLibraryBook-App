@@ -1,0 +1,21 @@
+form {
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+label {
+    display: inline-flex;
+    float: left;
+    width: 250px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 15px;
+}
+
