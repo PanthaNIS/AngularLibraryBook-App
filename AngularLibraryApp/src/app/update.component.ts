@@ -6,11 +6,11 @@ import {BookService, Book} from './book.service';
 @Component({
       template: `
 				<h3> Update Book Information</h3>
-				
+				<div class="form-group">
 				<form>
 				<p>Book ISBN: {{currentID}}</p>
 				<label for="bName"> Title: </label><br>
-				<input type = "text" id= "bName" name="bName" [(ngModel)]=currentName />
+				<input type = "text" id= "bName" name="bName" [(ngModel)]=currentTitle />
 				<br>
 				<label for="bAuthor"> Author: </label><br>
 				<input type = "text" id= "bAuthor" name="bAuthor" [(ngModel)]=currentAuthor />
@@ -40,12 +40,10 @@ import {BookService, Book} from './book.service';
 				<button (click) ="doNext()">Next</button>
 				<button (click) ="doSave()">Save</button>
 				<button (click) ="doDelete()">Delete</button>
-				<br><br>
-				<button routerLink ="/">Homepage </button>
-				<button (click)="doHelp()">Help</button>
-
-				<p style = "color:red;">{{message}}</p>
-				</form>`,
+				<button routerLink ="/dashboard">Dashboard </button>
+				
+				</form>
+				</div>`,
 			 styleUrls:['./add.component.css']
               
           
@@ -54,7 +52,7 @@ import {BookService, Book} from './book.service';
  	data: Book[];
  	position: number= -1;
  	currentID: number=0;
- 	currentName:string="";
+ 	currentTitle:string="";
  	currentAuthor:string="";
  	currentPublisher:string="";
  	currentPublicationDate:string="";
@@ -67,7 +65,7 @@ import {BookService, Book} from './book.service';
  		if(this.data.length == 0){
  			this.position =-1;
  			this.currentID = 0;
- 			this.currentName ="";
+ 			this.currentTitle ="";
  			this.currentAuthor="";
  			this.currentPublisher="";
  			this.currentPublicationDate="";
@@ -80,7 +78,7 @@ import {BookService, Book} from './book.service';
  		{
  			this.position =0;
  			this.currentID = this.data[0].ID;
- 			this.currentName = this.data[0].name;
+ 			this.currentTitle = this.data[0].title;
  			this.currentAuthor=this.data[0].author;
  			this.currentPublisher=this.data[0].publisher;
  			this.currentPublicationDate=this.data[0].publicationDate;
@@ -101,7 +99,7 @@ import {BookService, Book} from './book.service';
  			this.message="";
  			this.position--;
  			this.currentID = this.data[this.position].ID;
- 			this.currentName = this.data[this.position].name;
+ 			this.currentTitle = this.data[this.position].title;
  			this.currentAuthor=this.data[this.position].author;
  			this.currentPublisher=this.data[this.position].publisher;
  			this.currentPublicationDate=this.data[this.position].publicationDate;
@@ -121,7 +119,7 @@ import {BookService, Book} from './book.service';
           	this.message="";
  		this.position++;
  		this.currentID = this.data[this.position].ID;
- 		this.currentName = this.data[this.position].name;
+ 		this.currentTitle = this.data[this.position].title;
  		this.currentAuthor=this.data[this.position].author;
  		this.currentPublisher=this.data[this.position].publisher;
  		this.currentPublicationDate=this.data[this.position].publicationDate;
@@ -137,7 +135,7 @@ import {BookService, Book} from './book.service';
  			this.message = "There is no any data in the list to save in the list";
  		}
 		 else{
- 		this.data[this.position].name = this.currentName;
+ 		this.data[this.position].title = this.currentTitle;
  		this.data[this.position].author = this.currentAuthor;
  		this.data[this.position].publisher = this.currentPublisher;
  		this.data[this.position].publicationDate = this.currentPublicationDate;
@@ -156,7 +154,7 @@ import {BookService, Book} from './book.service';
  		}
  		if(this.data.length==0){
  			this.currentID=0;
- 			this.currentName="";
+ 			this.currentTitle="";
  			this.currentAuthor="";
  			this.currentPublisher="";
  			this.currentPublicationDate="";
@@ -169,7 +167,7 @@ import {BookService, Book} from './book.service';
  		else{
  		this.message="";
  		this.currentID = this.data[this.position].ID;
- 		this.currentName = this.data[this.position].name;
+ 		this.currentTitle = this.data[this.position].title;
  		this.currentAuthor=this.data[this.position].author;
  		this.currentPublisher=this.data[this.position].publisher;
  		this.currentPublicationDate=this.data[this.position].publicationDate;
@@ -181,10 +179,6 @@ import {BookService, Book} from './book.service';
  		}
 
  	}
- 	doHelp(){
- 		this.message="Press Prev and Next to traverse the database. To edit the database make change and press save button. And to delete the database press Delete";
-
-
- 	}
+ 	
 
  }

@@ -1,15 +1,13 @@
 // DashBoard  of the Application
 
 import { Component } from '@angular/core';
-//import { BookService, Book} from'./book.service';
+
 
 @Component({
       template: `
-				<h3 style="text-align: center; font-size:30px;">Angular Library Book Application </h3>
-                <hr style="max-width: 40%;">
-                <br>
-                <div style="text-align:center ;">
-				<h3 style="text-align: center;"> whoami! </h3>
+				<h3>Angular Library Book App </h3>
+                <div>
+				<h4> whoami! </h4>
                 <p>Hey! I am Nischal Pantha. Currently, I am studying bachelor in Software Development at Southern Cross University. </p>
                 </div>
 
@@ -17,7 +15,9 @@ import { Component } from '@angular/core';
 
 				
 				
-			  `
+			  `,
+              styleUrls:['./add.component.css']
+
               
           
 	})

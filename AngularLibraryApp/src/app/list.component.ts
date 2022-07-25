@@ -1,26 +1,27 @@
-// Listpage
+// Book Listed in the DashBoard
 
 import { Component } from '@angular/core';
 import {BookService, Book} from './book.service';
 
 @Component({
       template: `
-				<h3> List Page </h3>
+				<h3> Book List </h3>
+				
 				<table>
 				   
 				   <tr>
-				     <th>ISBN|</th>
-				     <th>Title|</th>
-				     <th>Author|</th>
-				     <th>Publisher|</th>
-				     <th>Publication Date|</th>
-				     <th>No of Pages|</th>
-				     <th>Availability|</th>
+				     <th>ISBN</th>
+				     <th>Title</th>
+				     <th>Author</th>
+				     <th>Publisher</th>
+				     <th>Publication Date</th>
+				     <th>No of Pages</th>
+				     <th>Availability</th>
 				     <th>Edition Number</th>
 				   </tr>
-				   <tr *ngFor ="let bk of data">
+				   <tr  *ngFor ="let bk of data">
 				      <td>{{bk.ID}}</td>
-				      <td>{{bk.name}}</td>
+				      <td>{{bk.title}}</td>
 				      <td>{{bk.author}}</td>
 				      <td>{{bk.publisher}}</td>
 				      <td>{{bk.publicationDate}}</td>
@@ -34,18 +35,8 @@ import {BookService, Book} from './book.service';
 
 
 
-				<br>
-				<button (click)="doHelp()">Help</button>
-				<br>
-		
-
-				<br>
-				<p style = "color:blue;">{{message}}</p>
-
-
-
-
-			  `
+			  `,
+			   styleUrls: ['./add.component.css']
               
           
 	})
@@ -56,10 +47,6 @@ import {BookService, Book} from './book.service';
  	 	this.data = books.getList(); // assign all the book to this list
 
  	}
- 	doHelp(){
- 		this.message="Go to add  Page to add more books in Database";
-
-
- 	}
+ 	
  
  }

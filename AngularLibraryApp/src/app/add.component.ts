@@ -7,12 +7,13 @@ import { BookService, Book} from './book.service';
 @Component ({
      template: `
 				<h3> Add New Books </h3>
+                <div class="form-group">
 				<form>
 				<label for="bID"> ISBN: </label><br>
 				<input type = "text" id= "bID" name="bID" [(ngModel)]=newID />
 				<br/>
 				<label for="bName"> Title: </label><br>
-				<input type = "text" id= "bName" name="bName" [(ngModel)]=newName />
+				<input type = "text" id= "bName" name="bName" [(ngModel)]=newTitle />
 				<br/>
 				<label for="bAuthor"> Author: </label><br>
 				<input type = "text" id= "bAuthor" name="bAuthor" [(ngModel)]=newAuthor />
@@ -38,10 +39,11 @@ import { BookService, Book} from './book.service';
 				<br/><br>
 				<button (click)="add()"> Add Book </button>
 
-				<button routerLink = "/"> Home Page </button>
-				<button (click)="doHelp()">Help</button>
-				<p style="color:red">{{message}}</p>
-				</form> `,
+				<button routerLink = "/dashboard"> Dashboard</button>
+				
+				</form>
+                </div>
+                 `,
 			  
 
 			  styleUrls:['./add.component.css']
@@ -50,7 +52,7 @@ import { BookService, Book} from './book.service';
 
  export class AddComponent{
  	newID: string ="";
- 	newName: string = "";
+ 	newTitle: string = "";
  	newAuthor: string="";
  	newPublisher: string="";
  	newPublicationDate: string="";
@@ -63,22 +65,28 @@ import { BookService, Book} from './book.service';
  
 
  	add(){
-           let tempID : number = parseInt(this.newID);
+           let bookID : number = parseInt(this.newID);
+           let booktitle : string = this.newTitle;
           
-          if(isNaN(tempID)){
-      	this.message="please enter a number For Book ISBN and page number";
+          if(isNaN(bookID)){
+      	this.message="Please enter a valid ISBN";
             }
            else{
       	  this.message = "";
-      	  if(this.book.isPresent(tempID)){
-      	  	this.message = "Book ISBN already Exists in Database";
+      	  if(this.book.isExist(bookID)){
+      	  	this.message = "ISBN already exists";
 
-      	 } else{
-      	  let bk: Book = {ID: parseInt(this.newID), name: this.newName, author:this.newAuthor , publisher:this.newPublisher , publicationDate:this.newPublicationDate , pages:this.newPages , 
+      	 } 
+
+
+         
+         else{
+      	  let bk: Book = {ID: parseInt(this.newID), title: this.newTitle, author:this.newAuthor , publisher:this.newPublisher , publicationDate:this.newPublicationDate , pages:this.newPages , 
                           availability:this.newAvailability , edition:this.newEditionNumber };
  	        this.book.doAdd(bk);
+    
  	        this.newID ="";
- 	        this.newName="";
+ 	        this.newTitle="";
  	        this.newAuthor="";
  	        this.newPublisher="";
  	        this.newPublicationDate="";
@@ -88,12 +96,7 @@ import { BookService, Book} from './book.service';
  	         }
  	      }
       }
-      doHelp(){
- 		this.message="Go to Browsr Page to edit the books in Database";
-
-
- 	}
-
+     
 
  	
 
